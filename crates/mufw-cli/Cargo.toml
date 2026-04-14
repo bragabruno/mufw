@@ -1,0 +1,34 @@
+[package]
+name = "mufw"
+description = "ufw-like command-line firewall for macOS (pf), built in Rust"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+authors.workspace = true
+repository.workspace = true
+homepage.workspace = true
+readme.workspace = true
+keywords.workspace = true
+categories.workspace = true
+
+[[bin]]
+name = "mufw"
+path = "src/main.rs"
+
+[dependencies]
+mufw-core = { path = "../mufw-core", version = "0.1" }
+clap.workspace = true
+clap_complete.workspace = true
+clap_mangen.workspace = true
+anyhow.workspace = true
+tracing.workspace = true
+tracing-subscriber.workspace = true
+nix.workspace = true
+tabled.workspace = true
+serde_json.workspace = true
+serde.workspace = true
+
+[dev-dependencies]
+assert_cmd = "2"
+predicates = "3"

@@ -1,0 +1,24 @@
+name: Bug report
+description: Something isn't working as expected.
+title: "bug: "
+labels: [bug]
+body:
+  - type: textarea
+    attributes:
+      label: What happened?
+      description: Clear description + reproduction steps.
+    validations: { required: true }
+  - type: input
+    attributes:
+      label: mufw version
+      placeholder: "mufw --version"
+    validations: { required: true }
+  - type: input
+    attributes:
+      label: macOS version
+      placeholder: "sw_vers -productVersion"
+    validations: { required: true }
+  - type: textarea
+    attributes:
+      label: Logs / pfctl output
+      render: shell
