@@ -13,13 +13,13 @@ A small Rust CLI that gives macOS a **ufw-like experience** on top of the built-
 ### Why not Little Snitch / LuLu / appFirewall?
 Those are **per-application outbound** firewalls built on Apple's NetworkExtension framework. mufw is a **packet-level** firewall (layer 3/4, inbound-focused by default). They solve different problems and work well **together**.
 
-| | mufw | LuLu / Little Snitch / appFirewall |
-|---|---|---|
-| Layer | L3/L4 (IP + port) | L7 (per-process) |
-| Direction | Inbound by default | Outbound by default |
-| CLI-first | Yes | No / limited |
-| Server / headless use | Yes | Mostly GUI |
-| Blocks based on | IPs, CIDRs, ports, proto | App identity, domains |
+|                       | mufw                     | LuLu / Little Snitch / appFirewall |
+| --------------------- | ------------------------ | ---------------------------------- |
+| Layer                 | L3/L4 (IP + port)        | L7 (per-process)                   |
+| Direction             | Inbound by default       | Outbound by default                |
+| CLI-first             | Yes                      | No / limited                       |
+| Server / headless use | Yes                      | Mostly GUI                         |
+| Blocks based on       | IPs, CIDRs, ports, proto | App identity, domains              |
 
 ### Is mufw production-ready?
 Pre-1.0. Ergonomics and the CLI surface may change between minor versions. The underlying behavior (writing an anchor, validating, loading) is conservative and reversible.
