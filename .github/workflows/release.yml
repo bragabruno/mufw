@@ -5,7 +5,23 @@ on:
     tags: ["v*.*.*"]
 
 jobs:
+  guard:
+    name: ensure tag is on main
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+      - name: verify tag is reachable from main
+        run: |
+          git fetch origin main:main
+          if ! git merge-base --is-ancestor "$GITHUB_SHA" main; then
+            echo "::error::Tag commit $GITHUB_SHA is not on main — refusing to release."
+            exit 1
+          fi
+
   build:
+    needs: guard
     name: build-${{ matrix.target }}
     runs-on: macos-latest
     strategy:
